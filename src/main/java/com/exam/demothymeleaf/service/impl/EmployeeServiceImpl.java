@@ -1,6 +1,6 @@
 package com.exam.demothymeleaf.service.impl;
 
-import com.exam.demothymeleaf.entity.EmployeeEntity;
+import com.exam.demothymeleaf.entity.employeeEntity;
 import com.exam.demothymeleaf.repository.EmployeeRepo;
 import com.exam.demothymeleaf.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +21,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<EmployeeEntity> getAllEmployee() {
+    public List<employeeEntity> getAllEmployee() {
         return employeeRepo.findAll();
     }
 
     @Override
-    public void createNewEmployee(EmployeeEntity employeeEntity) {
+    public void createNewEmployee(employeeEntity employeeEntity) {
         if (ObjectUtils.isEmpty(employeeEntity)) {
             throw new NullPointerException("Employee is empty");
         }
@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployeeById(Long id) throws Exception {
-        Optional<EmployeeEntity> employeeEntity = employeeRepo.findById(id);
+        Optional<employeeEntity> employeeEntity = employeeRepo.findById(id);
         if (!employeeEntity.isPresent()) {
             throw new Exception("Employee is empty");
         }

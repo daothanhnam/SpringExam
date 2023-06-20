@@ -1,6 +1,6 @@
 package com.exam.demothymeleaf.controller;
 
-import com.exam.demothymeleaf.entity.EmployeeEntity;
+import com.exam.demothymeleaf.entity.employeeEntity;
 import com.exam.demothymeleaf.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,17 +24,17 @@ public class EmployeeController {
     @GetMapping("/")
     public String getAllEmployee(Model model) {
         model.addAttribute("allEmployee", employeeService.getAllEmployee());
-        model.addAttribute("EmployeeEntity", new EmployeeEntity());
+        model.addAttribute("employeeEntity", new employeeEntity());
         return "index";
     }
 
-    @PostMapping("/create-new-Employee")
-    public String createNewEmployee(@ModelAttribute(value = "EmployeeEntity") EmployeeEntity EmployeeEntity) {
-        employeeService.createNewEmployee(EmployeeEntity);
+    @PostMapping("/create-new-employee")
+    public String createNewEmployee(@ModelAttribute(value = "employeeEntity") employeeEntity employeeEntity) {
+        employeeService.createNewEmployee(employeeEntity);
         return "redirect:/";
     }
 
-    @GetMapping("/delete-Employee-by-id/{id}")
+    @GetMapping("/delete-employee-by-id/{id}")
     public String deleteStudentById(@PathVariable(value = "id") Long id) throws Exception {
         employeeService.deleteEmployeeById(id);
         return "redirect:/";

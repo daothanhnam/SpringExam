@@ -5,16 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="#" th:action="@{/create-new-student}" th:object="${studentEntity}" method="post">
-        <input type="text" th:field="*{name}" placeholder="studentName"/>
-        <input type="number" th:field="*{age}" placeholder="studentAge"/>
+    <form action="#" th:action="@{/create-new-employee}" th:object="${employeeEntity}" method="post">
+        <input type="text" th:field="*{name}" placeholder="employeeName"/>
+        <input type="number" th:field="*{age}" placeholder="employeeWage"/>
         <button type="submit">Create</button>
     </form>
 
-    <div th:each="student:${allStudent}">
-        <div th:text="${student.name}"></div>
-        <div th:text="${student.age}"></div>
-        <a th:href="@{/delete-student-by-id/{id}(id = ${student.id})}">delete</a>
+    <div th:each="employee:${allEmployee}">
+        <div th:text="${employee.name}"></div>
+        <div th:text="${employee.age}"></div>
+        <a th:href="@{/delete-employee-by-id/{id}(id = ${employee.id})}">delete</a>
     </div>
 </body>
 </html>
